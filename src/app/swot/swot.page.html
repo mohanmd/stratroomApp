@@ -1,0 +1,628 @@
+<ion-header class="ion-no-border cust_header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="strengthAdd('add')" *ngIf="selectTabs == 'strenghts'" >
+        <ion-icon class="plus-icon" src="assets/icon/initiative/plus.svg" ></ion-icon>
+      </ion-button>
+      <ion-button (click)="weaknessAdd('add')" *ngIf="selectTabs == 'weakness'">
+        <ion-icon class="plus-icon" src="assets/icon/initiative/plus.svg" ></ion-icon>
+      </ion-button>
+      <ion-button (click)="oppurtunityAdd('add')" *ngIf="selectTabs == 'oppurtunities'">
+        <ion-icon class="plus-icon" src="assets/icon/initiative/plus.svg" ></ion-icon>
+      </ion-button>
+      <ion-button (click)="threatsAdd('add')" *ngIf="selectTabs == 'threats'"  >
+        <ion-icon class="plus-icon" src="assets/icon/initiative/plus.svg" ></ion-icon>
+      </ion-button>
+      <ion-button (click)="goLogin()">
+        <ion-icon  src="assets/icon/initiative/Logout.svg" color="dark" size="small"></ion-icon>        
+      </ion-button>
+    </ion-buttons>
+    <ion-title *ngIf="selectTabs == 'strenghts'"  class="ion-text-center text_upper  font-weight">Strenghts</ion-title>
+    <ion-title *ngIf="selectTabs == 'weakness'"  class="ion-text-center text_upper  font-weight">Weakness</ion-title>
+    <ion-title *ngIf="selectTabs == 'oppurtunities'"  class="ion-text-center text_upper  font-weight">Oppurtunities</ion-title>
+    <ion-title *ngIf="selectTabs == 'threats'"  class="ion-text-center text_upper  font-weight">Threats</ion-title>
+    
+  </ion-toolbar> 
+  <ion-row class="header-bottom">
+    <img src="assets/profile.svg">
+    <h6 class="text_upper">Human Resource</h6>
+  </ion-row> 
+</ion-header>
+
+<ion-content>
+  <ion-segment   [(ngModel)]="selectTabs" class="font">
+    <ion-segment-button value="strenghts"  class="button_green">
+      <p>S</p>
+    </ion-segment-button>
+    <ion-segment-button value="weakness" class="button_orange">
+      <p>w</p>
+    </ion-segment-button>
+    <ion-segment-button value="oppurtunities"  class="button_blue">
+      <p>O</p>
+    </ion-segment-button>
+    <ion-segment-button value="threats"  class="button_red">
+      <p>T</p>
+    </ion-segment-button>
+  </ion-segment>
+  
+
+  <!-- strenth start -->
+  <ion-grid *ngIf="selectTabs == 'strenghts'">
+    <ion-card (click)="goDetail()">
+      <ion-row class="ion-align-items-center">
+        <ion-col size="2" class="color_box button_green">
+          <ion-label>
+            S
+          </ion-label>
+        </ion-col>
+        <ion-col size="8" class="ion-text-center">
+          <p class="text_upper card_title "><span class="font-weight font-as_heding">Type: </span>External</p>
+        </ion-col>
+        <ion-col size="2">
+          <ion-buttons class="action_btns">
+            <ion-button  (click)="strengthEdit('edit')">
+              <ion-icon  class="btn-edit" src="assets/icon/Edit.svg" color="light" size="small" ></ion-icon>        
+            </ion-button>
+            <ion-button >
+              <ion-icon  src="assets/icon/Delete.svg" color="light" size="small"></ion-icon>        
+            </ion-button>
+          </ion-buttons>
+        </ion-col>
+
+        <ion-row class="inner_row">
+          <ion-col size="12">
+            <p class="marg-0 content">Aliguam in bibendum mmauris. Sed erat vel velit blandit pharetra vitae nec ante</p>
+          </ion-col>
+          <ion-col size="12">
+            <p class="marg-0"><span class="font-weight font-as_heding text_upper">Impact:</span> Aliguam in bibendum mmauris</p>
+          </ion-col>
+
+          <ion-col size="6" class="col_width-fit">
+            <p class="font-as_heding text_upper marg-0">Responsible</p>
+            <div class="responsible_profile">
+              <ion-img src="assets/profile/profile1.png"></ion-img>
+              <span>3+</span>
+            </div>
+          </ion-col>
+          <ion-col size="6"  class="col_width-fit ion-text-center status_col">
+            <p class="font-as_heding text_upper marg-0">Status</p>
+            <ion-icon class="status_icon" name="flag-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-row>
+    </ion-card>
+
+    <ion-card (click)="goDetail()">
+      <ion-row class="ion-align-items-center">
+        <ion-col size="2" class="color_box button_green">
+          <ion-label>
+            S
+          </ion-label>
+        </ion-col>
+        <ion-col size="8" class="ion-text-center">
+          <p class="text_upper card_title "><span class="font-weight font-as_heding">Type: </span>External</p>
+        </ion-col>
+        <ion-col size="2">
+          <ion-buttons class="action_btns">
+            <ion-button  (click)="strengthEdit('edit')">
+              <ion-icon  class="btn-edit" src="assets/icon/Edit.svg" color="light" size="small"></ion-icon>        
+            </ion-button>
+            <ion-button >
+              <ion-icon  src="assets/icon/Delete.svg" color="light" size="small"></ion-icon>        
+            </ion-button>
+          </ion-buttons>
+        </ion-col>
+
+        <ion-row class="inner_row">
+          <ion-col size="12">
+            <p class="marg-0 content">Aliguam in bibendum mmauris. Sed erat vel velit blandit pharetra vitae nec ante</p>
+          </ion-col>
+          <ion-col size="12">
+            <p  class="marg-0" ><span class="font-weight font-as_heding text_upper">Impact:</span> Aliguam in bibendum mmauris</p>
+          </ion-col>
+
+          <ion-col size="6" class="col_width-fit">
+            <p class="font-as_heding text_upper marg-0">Responsible</p>
+            <div class="responsible_profile">
+              <ion-img src="assets/profile/profile1.png"></ion-img>
+              <span>3+</span>
+            </div>
+          </ion-col>
+          <ion-col size="6"  class="col_width-fit ion-text-center status_col">
+            <p class="font-as_heding text_upper marg-0">Status</p>
+            <ion-icon class="status_icon" name="flag-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-row>
+    </ion-card>
+
+    <ion-card (click)="goDetail()">
+      <ion-row class="ion-align-items-center">
+        <ion-col size="2" class="color_box button_green">
+          <ion-label>
+            S
+          </ion-label>
+        </ion-col>
+        <ion-col size="8" class="ion-text-center">
+          <p class="text_upper card_title "><span class="font-weight font-as_heding">Type: </span>External</p>
+        </ion-col>
+        <ion-col size="2">
+          <ion-buttons class="action_btns">
+            <ion-button  (click)="strengthEdit('edit')">
+              <ion-icon  class="btn-edit" src="assets/icon/Edit.svg" color="light" size="small"></ion-icon>        
+            </ion-button>
+            <ion-button >
+              <ion-icon  src="assets/icon/Delete.svg" color="light" size="small"></ion-icon>        
+            </ion-button>
+          </ion-buttons>
+        </ion-col>
+
+        <ion-row class="inner_row">
+          <ion-col size="12">
+            <p class="marg-0 content">Aliguam in bibendum mmauris. Sed erat vel velit blandit pharetra vitae nec ante</p>
+          </ion-col>
+          <ion-col size="12">
+            <p class="marg-0"><span class="font-weight font-as_heding text_upper">Impact: </span> Aliguam in bibendum mmauris</p>
+          </ion-col>
+
+          <ion-col size="6" class="col_width-fit">
+            <p class="font-as_heding text_upper marg-0">Responsible</p>
+            <div class="responsible_profile">
+              <ion-img src="assets/profile/profile1.png"></ion-img>
+              <span>3+</span>
+            </div>
+          </ion-col>
+          <ion-col size="6"  class="col_width-fit ion-text-center status_col">
+            <p class="font-as_heding text_upper marg-0">Status</p>
+            <ion-icon class="status_icon" name="flag-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
+  <!-- strength end -->
+
+    <!-- weakness start -->
+    <ion-grid *ngIf="selectTabs == 'weakness'" class="weakness">
+      <ion-card (click)="goDetail()">
+        <ion-row class="ion-align-items-center">
+          <ion-col size="2" class="color_box button_orange">
+            <ion-label>
+              W
+            </ion-label>
+          </ion-col>
+          <ion-col size="8" class="ion-text-center">
+            <p class="text_upper card_title "><span class="font-weight font-as_heding">Type: </span>External</p>
+          </ion-col>
+          <ion-col size="2">
+            <ion-buttons class="action_btns">
+              <ion-button  (click)="weaknessEdit('edit')">
+                <ion-icon  class="btn-edit" src="assets/icon/Edit.svg" color="light" size="small" ></ion-icon>        
+              </ion-button>
+              <ion-button >
+                <ion-icon  src="assets/icon/Delete.svg" color="light" size="small"></ion-icon>        
+              </ion-button>
+            </ion-buttons>
+          </ion-col>
+  
+          <ion-row class="inner_row">
+            <ion-col size="12">
+              <p class="marg-0 content">Aliguam in bibendum mmauris. Sed erat vel velit blandit pharetra vitae nec ante</p>
+            </ion-col>
+            <ion-col size="12">
+              <p class="marg-0"><span class="font-weight font-as_heding text_upper">Impact:</span> Aliguam in bibendum mmauris</p>
+            </ion-col>
+  
+            <ion-col size="6" class="col_width-fit">
+              <p class="font-as_heding text_upper marg-0">Responsible</p>
+              <div class="responsible_profile">
+                <ion-img src="assets/profile/profile1.png"></ion-img>
+                <span>3+</span>
+              </div>
+            </ion-col>
+            <ion-col size="6"  class="col_width-fit ion-text-center status_col">
+              <p class="font-as_heding text_upper marg-0">Status</p>
+              <ion-icon class="status_icon" name="flag-outline"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-row>
+      </ion-card>
+  
+      <ion-card (click)="goDetail()">
+        <ion-row class="ion-align-items-center">
+          <ion-col size="2" class="color_box button_orange">
+            <ion-label>
+              W
+            </ion-label>
+          </ion-col>
+          <ion-col size="8" class="ion-text-center">
+            <p class="text_upper card_title "><span class="font-weight font-as_heding">Type: </span>External</p>
+          </ion-col>
+          <ion-col size="2">
+            <ion-buttons class="action_btns">
+              <ion-button   (click)="weaknessEdit('edit')" >
+                <ion-icon  class="btn-edit" src="assets/icon/Edit.svg" color="light" size="small"></ion-icon>        
+              </ion-button>
+              <ion-button >
+                <ion-icon  src="assets/icon/Delete.svg" color="light" size="small"></ion-icon>        
+              </ion-button>
+            </ion-buttons>
+          </ion-col>
+  
+          <ion-row class="inner_row">
+            <ion-col size="12">
+              <p class="marg-0 content">Aliguam in bibendum mmauris. Sed erat vel velit blandit pharetra vitae nec ante</p>
+            </ion-col>
+            <ion-col size="12">
+              <p  class="marg-0" ><span class="font-weight font-as_heding text_upper">Impact:</span> Aliguam in bibendum mmauris</p>
+            </ion-col>
+  
+            <ion-col size="6" class="col_width-fit">
+              <p class="font-as_heding text_upper marg-0">Responsible</p>
+              <div class="responsible_profile">
+                <ion-img src="assets/profile/profile1.png"></ion-img>
+                <span>3+</span>
+              </div>
+            </ion-col>
+            <ion-col size="6"  class="col_width-fit ion-text-center status_col">
+              <p class="font-as_heding text_upper marg-0">Status</p>
+              <ion-icon class="status_icon" name="flag-outline"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-row>
+      </ion-card>
+  
+      <ion-card (click)="goDetail()">
+        <ion-row class="ion-align-items-center">
+          <ion-col size="2" class="color_box button_orange">
+            <ion-label>
+              W
+            </ion-label>
+          </ion-col>
+          <ion-col size="8" class="ion-text-center">
+            <p class="text_upper card_title "><span class="font-weight font-as_heding">Type: </span>External</p>
+          </ion-col>
+          <ion-col size="2">
+            <ion-buttons class="action_btns">
+              <ion-button   (click)="weaknessEdit('edit')" >
+                <ion-icon  class="btn-edit" src="assets/icon/Edit.svg" color="light" size="small"></ion-icon>        
+              </ion-button>
+              <ion-button >
+                <ion-icon  src="assets/icon/Delete.svg" color="light" size="small"></ion-icon>        
+              </ion-button>
+            </ion-buttons>
+          </ion-col>
+  
+          <ion-row class="inner_row">
+            <ion-col size="12">
+              <p class="marg-0 content">Aliguam in bibendum mmauris. Sed erat vel velit blandit pharetra vitae nec ante</p>
+            </ion-col>
+            <ion-col size="12">
+              <p class="marg-0"><span class="font-weight font-as_heding text_upper">Impact: </span> Aliguam in bibendum mmauris</p>
+            </ion-col>
+  
+            <ion-col size="6" class="col_width-fit">
+              <p class="font-as_heding text_upper marg-0">Responsible</p>
+              <div class="responsible_profile">
+                <ion-img src="assets/profile/profile1.png"></ion-img>
+                <span>3+</span>
+              </div>
+            </ion-col>
+            <ion-col size="6"  class="col_width-fit ion-text-center status_col">
+              <p class="font-as_heding text_upper marg-0">Status</p>
+              <ion-icon class="status_icon" name="flag-outline"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-row>
+      </ion-card>
+    </ion-grid>
+    <!-- weakness end -->
+
+
+    <!-- Oppurtunites start -->
+    <ion-grid *ngIf="selectTabs == 'oppurtunities'" class="oppurtunities">
+      <ion-card (click)="goDetail()">
+        <ion-row class="ion-align-items-center">
+          <ion-col size="2" class="color_box button_blue">
+            <ion-label>
+              O
+            </ion-label>
+          </ion-col>
+          <ion-col size="8" class="ion-text-center">
+            <p class="text_upper card_title "><span class="font-weight font-as_heding">Type: </span>External</p>
+          </ion-col>
+          <ion-col size="2">
+            <ion-buttons class="action_btns">
+              <ion-button    (click)="oppurtunityEdit('edit')">
+                <ion-icon  class="btn-edit" src="assets/icon/Edit.svg" color="light" size="small" ></ion-icon>        
+              </ion-button>
+              <ion-button >
+                <ion-icon  src="assets/icon/Delete.svg" color="light" size="small"></ion-icon>        
+              </ion-button>
+            </ion-buttons>
+          </ion-col>
+  
+          <ion-row class="inner_row">
+            <ion-col size="12">
+              <p class="marg-0 content">Aliguam in bibendum mmauris. Sed erat vel velit blandit pharetra vitae nec ante</p>
+            </ion-col>
+            <ion-col size="12">
+              <p class="marg-0"><span class="font-weight font-as_heding text_upper">Impact:</span> Aliguam in bibendum mmauris</p>
+            </ion-col>
+  
+            <ion-col size="6" class="col_width-fit">
+              <p class="font-as_heding text_upper marg-0">Responsible</p>
+              <div class="responsible_profile">
+                <ion-img src="assets/profile/profile1.png"></ion-img>
+                <span>3+</span>
+              </div>
+            </ion-col>
+            <ion-col size="6"  class="col_width-fit ion-text-center status_col">
+              <p class="font-as_heding text_upper marg-0">Status</p>
+              <ion-icon class="status_icon" name="flag-outline"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-row>
+      </ion-card>
+  
+      <ion-card (click)="goDetail()">
+        <ion-row class="ion-align-items-center">
+          <ion-col size="2" class="color_box button_blue">
+            <ion-label>
+              O
+            </ion-label>
+          </ion-col>
+          <ion-col size="8" class="ion-text-center">
+            <p class="text_upper card_title "><span class="font-weight font-as_heding">Type: </span>External</p>
+          </ion-col>
+          <ion-col size="2">
+            <ion-buttons class="action_btns">
+              <ion-button  (click)="oppurtunityEdit('edit')">
+                <ion-icon  class="btn-edit" src="assets/icon/Edit.svg" color="light" size="small"></ion-icon>        
+              </ion-button>
+              <ion-button >
+                <ion-icon  src="assets/icon/Delete.svg" color="light" size="small"></ion-icon>        
+              </ion-button>
+            </ion-buttons>
+          </ion-col>
+  
+          <ion-row class="inner_row">
+            <ion-col size="12">
+              <p class="marg-0 content">Aliguam in bibendum mmauris. Sed erat vel velit blandit pharetra vitae nec ante</p>
+            </ion-col>
+            <ion-col size="12">
+              <p  class="marg-0" ><span class="font-weight font-as_heding text_upper">Impact:</span> Aliguam in bibendum mmauris</p>
+            </ion-col>
+  
+            <ion-col size="6" class="col_width-fit">
+              <p class="font-as_heding text_upper marg-0">Responsible</p>
+              <div class="responsible_profile">
+                <ion-img src="assets/profile/profile1.png"></ion-img>
+                <span>3+</span>
+              </div>
+            </ion-col>
+            <ion-col size="6"  class="col_width-fit ion-text-center status_col">
+              <p class="font-as_heding text_upper marg-0">Status</p>
+              <ion-icon class="status_icon" name="flag-outline"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-row>
+      </ion-card>
+  
+      <ion-card (click)="goDetail()">
+        <ion-row class="ion-align-items-center">
+          <ion-col size="2" class="color_box button_blue">
+            <ion-label>
+              O
+            </ion-label>
+          </ion-col>
+          <ion-col size="8" class="ion-text-center">
+            <p class="text_upper card_title "><span class="font-weight font-as_heding">Type: </span>External</p>
+          </ion-col>
+          <ion-col size="2">
+            <ion-buttons class="action_btns">
+              <ion-button    (click)="oppurtunityEdit('edit')">
+                <ion-icon  class="btn-edit" src="assets/icon/Edit.svg" color="light" size="small"></ion-icon>        
+              </ion-button>
+              <ion-button >
+                <ion-icon  src="assets/icon/Delete.svg" color="light" size="small"></ion-icon>        
+              </ion-button>
+            </ion-buttons>
+          </ion-col>
+  
+          <ion-row class="inner_row">
+            <ion-col size="12">
+              <p class="marg-0 content">Aliguam in bibendum mmauris. Sed erat vel velit blandit pharetra vitae nec ante</p>
+            </ion-col>
+            <ion-col size="12">
+              <p class="marg-0"><span class="font-weight font-as_heding text_upper">Impact: </span> Aliguam in bibendum mmauris</p>
+            </ion-col>
+  
+            <ion-col size="6" class="col_width-fit">
+              <p class="font-as_heding text_upper marg-0">Responsible</p>
+              <div class="responsible_profile">
+                <ion-img src="assets/profile/profile1.png"></ion-img>
+                <span>3+</span>
+              </div>
+            </ion-col>
+            <ion-col size="6"  class="col_width-fit ion-text-center status_col">
+              <p class="font-as_heding text_upper marg-0">Status</p>
+              <ion-icon class="status_icon" name="flag-outline"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-row>
+      </ion-card>
+    </ion-grid>
+    <!-- oppurtunities end -->
+    
+
+
+    <!-- Threats start -->
+    <ion-grid *ngIf="selectTabs == 'threats'" class="threats">
+      <ion-card (click)="goDetail()">
+        <ion-row class="ion-align-items-center">
+          <ion-col size="2" class="color_box button_red">
+            <ion-label>
+              T
+            </ion-label>
+          </ion-col>
+          <ion-col size="8" class="ion-text-center">
+            <p class="text_upper card_title "><span class="font-weight font-as_heding">Type: </span>External</p>
+          </ion-col>
+          <ion-col size="2">
+            <ion-buttons class="action_btns">
+              <ion-button   (click)="threatsEdit('edit')">
+                <ion-icon  class="btn-edit" src="assets/icon/Edit.svg" color="light" size="small" ></ion-icon>        
+              </ion-button>
+              <ion-button >
+                <ion-icon  src="assets/icon/Delete.svg" color="light" size="small"></ion-icon>        
+              </ion-button>
+            </ion-buttons>
+          </ion-col>
+  
+          <ion-row class="inner_row">
+            <ion-col size="12">
+              <p class="marg-0 content">Aliguam in bibendum mmauris. Sed erat vel velit blandit pharetra vitae nec ante</p>
+            </ion-col>
+            <ion-col size="12">
+              <p class="marg-0"><span class="font-weight font-as_heding text_upper">Impact:</span> Aliguam in bibendum mmauris</p>
+            </ion-col>
+  
+            <ion-col size="6" class="col_width-fit">
+              <p class="font-as_heding text_upper marg-0">Responsible</p>
+              <div class="responsible_profile">
+                <ion-img src="assets/profile/profile1.png"></ion-img>
+                <span>3+</span>
+              </div>
+            </ion-col>
+            <ion-col size="6"  class="col_width-fit ion-text-center status_col">
+              <p class="font-as_heding text_upper marg-0">Status</p>
+              <ion-icon class="status_icon" name="flag-outline"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-row>
+      </ion-card>
+  
+      <ion-card (click)="goDetail()">
+        <ion-row class="ion-align-items-center">
+          <ion-col size="2" class="color_box button_red">
+            <ion-label>
+              T
+            </ion-label>
+          </ion-col>
+          <ion-col size="8" class="ion-text-center">
+            <p class="text_upper card_title "><span class="font-weight font-as_heding">Type: </span>External</p>
+          </ion-col>
+          <ion-col size="2">
+            <ion-buttons class="action_btns">
+              <ion-button   (click)="threatsEdit('edit')">
+                <ion-icon  class="btn-edit" src="assets/icon/Edit.svg" color="light" size="small"></ion-icon>        
+              </ion-button>
+              <ion-button >
+                <ion-icon  src="assets/icon/Delete.svg" color="light" size="small"></ion-icon>        
+              </ion-button>
+            </ion-buttons>
+          </ion-col>
+  
+          <ion-row class="inner_row">
+            <ion-col size="12">
+              <p class="marg-0 content">Aliguam in bibendum mmauris. Sed erat vel velit blandit pharetra vitae nec ante</p>
+            </ion-col>
+            <ion-col size="12">
+              <p  class="marg-0" ><span class="font-weight font-as_heding text_upper">Impact:</span> Aliguam in bibendum mmauris</p>
+            </ion-col>
+  
+            <ion-col size="6" class="col_width-fit">
+              <p class="font-as_heding text_upper marg-0">Responsible</p>
+              <div class="responsible_profile">
+                <ion-img src="assets/profile/profile1.png"></ion-img>
+                <span>3+</span>
+              </div>
+            </ion-col>
+            <ion-col size="6"  class="col_width-fit ion-text-center status_col">
+              <p class="font-as_heding text_upper marg-0">Status</p>
+              <ion-icon class="status_icon" name="flag-outline"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-row>
+      </ion-card>
+  
+      <ion-card (click)="goDetail()">
+        <ion-row class="ion-align-items-center">
+          <ion-col size="2" class="color_box button_red">
+            <ion-label>
+              T
+            </ion-label>
+          </ion-col>
+          <ion-col size="8" class="ion-text-center">
+            <p class="text_upper card_title "><span class="font-weight font-as_heding">Type: </span>External</p>
+          </ion-col>
+          <ion-col size="2">
+            <ion-buttons class="action_btns">
+              <ion-button   (click)="threatsEdit('edit')">
+                <ion-icon  class="btn-edit" src="assets/icon/Edit.svg" color="light" size="small"></ion-icon>        
+              </ion-button>
+              <ion-button >
+                <ion-icon  src="assets/icon/Delete.svg" color="light" size="small"></ion-icon>        
+              </ion-button>
+            </ion-buttons>
+          </ion-col>
+  
+          <ion-row class="inner_row">
+            <ion-col size="12">
+              <p class="marg-0 content">Aliguam in bibendum mmauris. Sed erat vel velit blandit pharetra vitae nec ante</p>
+            </ion-col>
+            <ion-col size="12">
+              <p class="marg-0"><span class="font-weight font-as_heding text_upper">Impact: </span> Aliguam in bibendum mmauris</p>
+            </ion-col>
+  
+            <ion-col size="6" class="col_width-fit">
+              <p class="font-as_heding text_upper marg-0">Responsible</p>
+              <div class="responsible_profile">
+                <ion-img src="assets/profile/profile1.png"></ion-img>
+                <!-- <ion-img src="assets/profile/profile1.png"></ion-img>
+                <ion-img src="assets/profile/profile1.png"></ion-img> -->
+                <span>3+</span>
+              </div>
+            </ion-col>
+            <ion-col size="6"  class="col_width-fit ion-text-center status_col">
+              <p class="font-as_heding text_upper marg-0">Status</p>
+              <ion-icon class="status_icon" name="flag-outline"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-row>
+      </ion-card>
+    </ion-grid>
+    <!-- threats end -->
+
+</ion-content>
+
+
+
+<ion-footer class="ion-no-border" translucent>
+  <ion-row >
+    <ion-col size="4" class="ion-no-padding bg_theme">
+      <ion-button expand="block" class="profile bg_theme">
+        <ion-icon name="person-outline" size="small" ></ion-icon> 
+      </ion-button>
+    </ion-col>
+    <ion-col  size="4" class="ion-no-padding bg_theme_green">
+      <ion-button class="notification bg_theme_green">
+        <ion-icon name="notifications-outline"  size="small"></ion-icon> 
+      </ion-button>
+    </ion-col>
+    <ion-col  size="4" class="ion-no-padding bg_theme">
+      <ion-button class="notification bg_theme">
+        <ion-icon name="settings-outline" size="small" ></ion-icon>
+      </ion-button>
+    </ion-col>
+    <!-- <ion-col  size="3" class="ion-no-padding">
+      <ion-button class="notification bg_theme_green">
+        <ion-icon name="notifications-outline"  size="small"></ion-icon> 
+      </ion-button>
+    </ion-col> -->
+  </ion-row>
+</ion-footer>

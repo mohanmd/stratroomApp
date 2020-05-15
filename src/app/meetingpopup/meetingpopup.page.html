@@ -1,0 +1,194 @@
+<ion-header class="ion-no-border font">
+  <ion-toolbar class="heading_top">
+    
+      <ion-buttons slot="start">
+          <ion-button (click)="dismiss('dismissed')">
+              <ion-icon name="chevron-back-outline" size="md" ></ion-icon>
+          </ion-button>
+      </ion-buttons>
+      <!-- <ion-buttons slot="start">
+        <ion-back-button  (click)="dismiss('dismissed')" defaultHref="login"></ion-back-button>
+      </ion-buttons> -->
+
+      <ion-buttons slot="secondary">
+
+          <ion-button (click)="goLogin()">
+              <ion-icon  src="../../assets/icon/initiative/Logout.svg" color="light" size="small"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+      <ion-title class="ion-text-center text_upper font font-weight" *ngIf="addData">Add Meetings</ion-title>
+      <ion-title class="ion-text-center text_upper font font-weight" *ngIf="editData">Edit Meetings</ion-title>
+      <!--<ion-title class="ion-text-center text_upper font" *ngIf="iniativedata">Edit Initiative</ion-title>-->
+  </ion-toolbar>
+  <ion-row class="header-bottom">
+      <img src="../../assets/profile.svg" class="img_top">
+      <h6 class="text_upper font">Human Resource</h6>
+  </ion-row>
+</ion-header>
+
+
+<ion-content class="ion-padding ">
+    <ion-item class="bg_input marg_bot_10 font" lines="none">
+      <!-- <ion-label position="stacked">Title</ion-label> -->
+      <ion-input  inputmode="text" placeholder="Title"></ion-input>
+    </ion-item>
+
+    <ion-item class="bg_input marg_bot_10 font" lines="none">
+      <!-- <ion-label position="stacked">Title</ion-label> -->
+      <ion-datetime class="cust_input" placeholder="Date" displayFormat="MM/DD/YYYY" min="1994-03-14" max="2020-12-09" value="2002-09-23T15:03:46.789"></ion-datetime>
+    </ion-item>
+
+    <ion-row class="ion-no-padding time_row">
+      <ion-col size="6" class="pl_0">
+        <ion-item class="bg_input marg_bot_10 font" lines="none">
+          <!-- <ion-label position="stacked">Title</ion-label> -->
+          <ion-input  inputmode="text" placeholder="Start Time"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="6" class="pr_0">
+        <ion-item class="bg_input marg_bot_10 font" lines="none">
+          <!-- <ion-label position="stacked">Title</ion-label> -->
+          <ion-input  inputmode="text" placeholder="End Time"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-item lines="none" class="font">
+      <!-- <ion-label  position="stacked">Owner</ion-label> -->
+      <ion-input class="location" placeholder="Location"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="font status_input-grp">
+      <!-- <ion-label position="stacked">Attendees</ion-label> -->
+      <ion-select multiple placeholder="Attendees" >
+        <ion-select-option value="people1">Luisa Lee</ion-select-option>
+        <ion-select-option value="people2">Roger Collins</ion-select-option>
+        <ion-select-option value="people3">Luisa Lee</ion-select-option>
+        <ion-select-option value="people4">Roger Collins</ion-select-option>
+        <ion-select-option value="people5">Luisa Lee</ion-select-option>
+        <ion-select-option value="people6">Roger Collins</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="none" class="font status_input-grp">
+      <!-- <ion-label position="stacked">Status</ion-label> -->
+      <ion-select placeholder="Location">
+        <ion-select-option value="scheduled">Scheduled</ion-select-option>
+        <ion-select-option value="rescheduled">Rescheduled</ion-select-option>
+        <ion-select-option value="Cancelled">Cancelled</ion-select-option>
+        <ion-select-option value="pending">Pending</ion-select-option>
+        <ion-select-option value="ongoing">Ongoing</ion-select-option>
+        <ion-select-option value="completed">Completed</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- <ion-item lines="none" class="font">
+      <ion-label position="stacked">Planned Start Date /End Date</ion-label>
+      <ion-input type="date" (click)="openCalendar()"></ion-input>
+    </ion-item>
+
+
+
+    <ion-item lines="none" class="font">
+      <ion-label position="stacked"> Actual Start Date /End Date</ion-label>
+        <ion-input type="date" (click)="openCalendar()"></ion-input>
+    </ion-item>
+ -->
+
+
+
+<!-- <ion-list>
+  <ion-radio-group>
+      <ion-label position="stacked" class="font"> status</ion-label>
+    <ion-row class="font">
+      <ion-col size="4" >
+        <ion-item lines="none">
+          <ion-radio slot="start" value="biff" class="color_change1">Complete</ion-radio>
+        </ion-item>
+      </ion-col>
+        
+      <ion-col size="4" >
+          <ion-item lines="none">
+              <ion-radio slot="start" value="tecg" class="color_change"></ion-radio>
+          </ion-item>
+      </ion-col>
+
+      <ion-col size="4" >
+        <ion-item lines="none">
+          <ion-radio slot="start" value="grif" class="color_change2"></ion-radio>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-radio-group>
+</ion-list> -->
+
+
+
+  <!-- <ion-item class="bg_input marg_bot_10" lines="none" class="font">
+        <ion-label position="stacked">Progerss %</ion-label>
+        <ion-input  inputmode="text"></ion-input>
+      </ion-item>
+
+  <ion-row>
+    <ion-label class="datafield_label" position="stacked">Data fields </ion-label>
+      <ion-col size="4" class="font">
+        <ion-item lines="none">
+            <ion-checkbox ></ion-checkbox>
+            <ion-label class="checkbox_text">Budget</ion-label>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="4" class="font">
+        <ion-item lines="none">
+            <ion-checkbox ></ion-checkbox>
+            <ion-label class="checkbox_text">Utillized</ion-label>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="4" class="font">
+        <ion-item lines="none">
+            <ion-checkbox ></ion-checkbox>
+            <ion-label class="checkbox_text">Balance</ion-label>
+        </ion-item>
+      </ion-col>
+
+      <ion-col size="4" class="font">
+        <ion-item lines="none">
+            <ion-checkbox></ion-checkbox>
+            <ion-label class="checkbox_text">Actual</ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col size="4" class="font">
+        <ion-item lines="none">
+            <ion-checkbox></ion-checkbox>
+            <ion-label class="checkbox_text">Target</ion-label>
+        </ion-item>
+      </ion-col>
+      
+      <ion-col size="4" class="font">
+        <ion-item lines="none">
+            <ion-checkbox></ion-checkbox>
+
+            <ion-label class="checkbox_text">Budget</ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col size="4" class="font">
+        <ion-item lines="none">
+            <ion-checkbox></ion-checkbox>
+
+            <ion-label class="checkbox_text">Forecast</ion-label>
+        </ion-item>
+      </ion-col>
+  </ion-row> -->
+
+
+  <ion-row>
+    <ion-col>
+      <ion-item lines="none" class="ion-text-right font">
+          <ion-button color="light">cancel</ion-button>
+          <ion-button color="dark">Save</ion-button>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-content>

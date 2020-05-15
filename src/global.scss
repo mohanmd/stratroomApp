@@ -1,0 +1,201 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+.font{
+  font-family: muli;
+
+}
+.font-weight{
+  font-weight: bold;
+}
+
+.text_upper{
+  text-transform: uppercase;
+}
+
+app-meeting, app-meetingsview, app-swot{
+  background: #f9f9f9;
+}
+
+.font-as_heding {
+  font-size: 15px;
+  color: #1e252d;
+  font-weight: 600;
+}
+
+.cust-dark{
+  color: #1e252d;
+}
+
+.marg-0{
+  margin: 0;
+}
+.margin-bot-10{
+  margin-bottom: 10px;
+}
+.margin-top-10{
+  margin-top: 10px;
+}
+.margin-bot-15{
+  margin-bottom: 15px;
+}
+.pl_0{
+  padding-left: 0;
+}
+.pr_0{
+  padding-right: 0;
+}
+
+.padding-start-end-remove{
+  --padding-start: 0;
+  --padding-end: 0;
+}
+// actionicon
+.ion-cust-size{
+  font-size: 14px;
+}
+.icon-edit{
+  filter: invert(1) brightness(3);
+
+}
+
+//#### inputs ######
+.cust_input{
+  border: 1px solid #ababab;
+  border-radius: 5px;
+}
+
+// header action buttons
+ion-header {
+  ion-buttons {
+      margin-right: 10px !important; 
+      width: 44px;
+      text-align: right;
+      justify-content: flex-end;
+      ion-button{
+          --padding-start: 0 !important;
+          --padding-end: 0 !important;
+          margin-right: 8px !important;
+      }
+  }
+}
+
+
+// status
+.status{
+  display: flex;
+  align-items: center;
+  ion-label{
+      width: 8px;
+      height: 8px;
+      display: inline-block;
+      border-radius: 100%;
+      margin-left: 6px;
+  }
+}
+
+.ongoing  ion-label{
+  background: #43e69b;
+}
+.pending  ion-label{
+  background: #FFEB3B;
+}
+.canceled  ion-label{
+  background: #ff1b3b;
+}
+
+
+// header
+ion-header.cust_header{
+  background-color: #1e252d;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  margin-bottom: 5em;
+  ion-toolbar{
+      --background: #1e252d;
+      color: #fff;
+      border-bottom-left-radius: 18px;
+      border-bottom-right-radius: 18px;
+      ion-title{
+          font-size: 16px;
+      }
+  }
+
+  ion-buttons{
+      margin-right: 15px;
+  }
+
+  .plus-icon{
+    font-size: 13px;
+  }
+}
+// header bottom
+.header-bottom{
+  height: 38px;
+  img{
+      border-radius: 100px;
+      border: 2px solid #fff;
+      /* padding: 4px; */
+      box-shadow: 0px 0px 8px 0px #00000029, 0px 0px 8px 0px rgba(0, 0, 0, 0.54);
+      display: block;
+      width: 100;
+      margin: auto;
+  }
+  h6{
+      display: block;
+      text-align: center;
+      width: 100%;
+      margin: 7px 0 0;
+      font-size: 15px;
+      font-weight: 600;
+  }
+}
+
+
+
+// footer
+.bg_theme{
+  --background: #1e252d;
+}
+.bg_theme_green{
+  --background: #9bbf54;
+}
+
+ion-footer{
+  box-shadow: 0px 0px 7px 0px #000;
+  ion-button{
+      width: 100%;
+      margin: 0;
+      --border-radius: 0;
+      --box-shadow: none;
+      ion-icon{
+          margin-right: 5px;
+          padding: 10px;
+      }
+  }
+}
