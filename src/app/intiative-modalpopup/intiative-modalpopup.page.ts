@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import {Router} from '@angular/router';
-import { CalendarComponentOptions } from 'ion2-calendar';
+import { CalendarComponentOptions, CalendarModal, CalendarModalOptions,CalendarResult } from 'ion2-calendar';
+
 
 
 @Component({
@@ -10,18 +11,18 @@ import { CalendarComponentOptions } from 'ion2-calendar';
   styleUrls: ['./intiative-modalpopup.page.scss'],
 })
 export class IntiativeModalpopupPage implements OnInit {
-  @Input() data: string;
-  @Input() data1: string;
+  // @Input() data: string;
+  // @Input() data1: string;
   // @Input() iniativedata: string;
   public buttonTrue: boolean;
-  date: string;
-  type: 'string';
-  dateMulti: string[];
-  dateRange: { from: string; to: string; };
+  // date: string;
   // type: 'string';
-  optionsMulti: CalendarComponentOptions = {
-    pickMode: 'multi'
-  };
+  // dateMulti: string[];
+  // dateRange: { from: string; to: string; };
+
+  // optionsMulti: CalendarComponentOptions = {
+  //   pickMode: 'multi'
+  // };
   constructor( private modalControler: ModalController, public router: Router)  {
     // console.log(data,'lathaa')
 
@@ -40,6 +41,44 @@ export class IntiativeModalpopupPage implements OnInit {
       'dismissed': true
     });
   }
+
+
+  // range picker
+  // optionsRange: CalendarComponentOptions = {
+  //   showMonthPicker: true,
+    
+  // };
+
+
+
+  async openCalendar() {
+    const options: CalendarModalOptions = {
+      title: 'range',
+      pickMode: 'range',
+      color:'dark',
+      cssClass: 'dayOff', 
+      disableWeeks: [],
+    };
+    const option: CalendarComponentOptions = {
+      monthPickerFormat: ['jan'],
+      showMonthPicker: false,   
+      pickMode: 'single',
+      weekdays: []
+    };
+
+  let myCalendar =  await this.modalControler.create({
+    component: CalendarModal,
+    componentProps: { options ,option},
+  });
+
+  myCalendar.present();    
+  const event: any = await myCalendar.onDidDismiss();
+  const date = event.data;
+  const from: CalendarResult = date.from;
+  const to: CalendarResult = date.to;
+
+  console.log(date, from, to);
+}
 
 
 }

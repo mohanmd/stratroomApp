@@ -4,7 +4,7 @@
       <ion-back-button defaultHref="login"></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="secondary">
-      <ion-button class="edit-btn" (click)="editpopupView()" *ngIf="selectTabs == 'view'">
+      <ion-button class="edit-btn" (click)="editpopupView('plus')" *ngIf="selectTabs == 'view'">
         <ion-icon class="edit-icon" src="assets/icon/Edit.svg"  color="light" ></ion-icon>
       </ion-button>
       <ion-button *ngIf="selectTabs == 'action'" (click)="addPopupAcction()">
@@ -222,8 +222,6 @@
             <div class="attendees-profile display-flex align-item-center">
               <div class="attendees-list ion-justify-content-end">
                 <ion-img  src="assets/profile/profile1.png"></ion-img>
-                <ion-img  src="assets/profile/profile2.png"></ion-img>
-                <ion-img  src="assets/profile/profile3.png"></ion-img>
                 <p class="more">+</p>
               </div>
             </div>
@@ -256,8 +254,6 @@
             <div class="attendees-profile display-flex align-item-center">
               <div class="attendees-list ion-justify-content-end">
                 <ion-img  src="assets/profile/profile1.png"></ion-img>
-                <ion-img  src="assets/profile/profile2.png"></ion-img>
-                <ion-img  src="assets/profile/profile3.png"></ion-img>
                 <p class="more">+</p>
               </div>
             </div>

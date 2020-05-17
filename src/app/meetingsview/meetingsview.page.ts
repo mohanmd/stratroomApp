@@ -4,7 +4,8 @@ import { ModalController } from '@ionic/angular';
 import { CalendarModal, CalendarModalOptions,CalendarResult } from 'ion2-calendar';
 
 
-import { MeetingViewPoupPage } from '../meeting-view-poup/meeting-view-poup.page';
+// import { MeetingViewPoupPage } from '../meeting-view-poup/meeting-view-poup.page';
+import { MeetingpopupPage } from '../meetingpopup/meetingpopup.page'
 
 
 @Component({
@@ -63,9 +64,9 @@ export class MeetingsviewPage implements OnInit {
 
     console.log(value);
     const modal = await this.modalControler.create({
-      component: MeetingViewPoupPage,
+      component: MeetingpopupPage,
       componentProps: {
-        addData: 'plus',
+        dataAction: 'plus',
       }
     });
 
@@ -79,9 +80,9 @@ export class MeetingsviewPage implements OnInit {
 
     console.log(value);
     const modal = await this.modalControler.create({
-      component: MeetingViewPoupPage,
+      component: MeetingpopupPage,
       componentProps: {
-        addData: 'plus',
+        addNotes: 'plus',
       }
     });
 
@@ -95,7 +96,7 @@ export class MeetingsviewPage implements OnInit {
 
     console.log(value);
     const modal = await this.modalControler.create({
-      component: MeetingViewPoupPage,
+      component: MeetingpopupPage,
       componentProps: {
         editData: 'plus',
       }

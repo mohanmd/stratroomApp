@@ -12,10 +12,20 @@ import { CalendarModule } from 'ion2-calendar';
 
 // modal page
 import { SwotpopupPage } from './swotpopup/swotpopup.page';
+import { MeetingpopupPage } from './meetingpopup/meetingpopup.page'
+
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [
+    AppComponent, 
+
+    SwotpopupPage,
+    MeetingpopupPage,
+  ],
+  entryComponents: [
+    SwotpopupPage,
+    MeetingpopupPage
+  ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

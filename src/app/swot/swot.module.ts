@@ -19,8 +19,9 @@ import { SwotpopupPage } from '../swotpopup/swotpopup.page';
     SwotPageRoutingModule,    
 
   ],
-  declarations: [SwotpopupPage, SwotPage],
-  entryComponents: [SwotpopupPage],
+  declarations: [ SwotPage],
+  // entryComponents: [SwotpopupPage],
+  // exports: [SwotpopupPage],
 })
 
 export class SwotPageModule {}

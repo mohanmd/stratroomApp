@@ -18,9 +18,9 @@ import { MeetingpopupPage } from '../meetingpopup/meetingpopup.page';
     IonicModule,
     MeetingPageRoutingModule
   ],
-  declarations: [MeetingpopupPage,MeetingPage],
+  declarations: [MeetingPage],
 
-  entryComponents: [MeetingpopupPage],
+  // entryComponents: [MeetingpopupPage],
 })
 
 export class MeetingPageModule {}

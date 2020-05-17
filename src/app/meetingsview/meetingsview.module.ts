@@ -11,7 +11,6 @@ import { MeetingsviewPage } from './meetingsview.page';
 // datepicker
 import { RouterModule } from '@angular/router';
 import { CalendarModule } from 'ion2-calendar';
-import { MeetingViewPoupPage } from '../meeting-view-poup/meeting-view-poup.page';
 
 
 
@@ -31,7 +30,6 @@ import { MeetingViewPoupPage } from '../meeting-view-poup/meeting-view-poup.page
 
   ],
   
-  declarations: [MeetingViewPoupPage,MeetingsviewPage],
-  entryComponents: [MeetingViewPoupPage]
+  declarations: [MeetingsviewPage],
 })
 export class MeetingsviewPageModule {}
