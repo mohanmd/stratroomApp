@@ -176,7 +176,20 @@ ion-header.cust_header{
   }
 }
 
-
+// datepicker popup
+ion-modal{
+  background-color: rgba(34, 36, 40, 0.29);
+}
+.calendarModal div.modal-wrapper {
+  width: 80% !important;
+  height: 60% !important;
+}
+.calendarModal div.modal-wrapper ion-title{
+  display: none !important;
+}
+.calendarModal div.modal-wrapper ion-header ion-buttons{
+  width: auto !important;
+}
 
 // footer
 .bg_theme{

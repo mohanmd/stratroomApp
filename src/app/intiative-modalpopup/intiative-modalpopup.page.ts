@@ -69,6 +69,7 @@ export class IntiativeModalpopupPage implements OnInit {
   let myCalendar =  await this.modalControler.create({
     component: CalendarModal,
     componentProps: { options ,option},
+    cssClass: 'calendarModal', 
   });
 
   myCalendar.present();    
