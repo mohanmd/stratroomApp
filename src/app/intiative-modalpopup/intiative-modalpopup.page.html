@@ -50,24 +50,19 @@
               <ion-buttons slot="end">
                   <span ><ion-icon class="down-outline" name="caret-down-outline"></ion-icon></span>
               </ion-buttons>
-
           </ion-input>
-
-
       </ion-item>
-
-
 
       <ion-item lines="none" class="font">
         <ion-label position="stacked">Planned Start Date /End Date</ion-label>
-        <ion-input type="date" (click)="openCalendar()"></ion-input>
+        <ion-input class="dateinput1" (click)="openCalendar('dateinput1')" value="12/12/2020 - 19/12/2020"></ion-input>
       </ion-item>
 
 
 
       <ion-item lines="none" class="font">
         <ion-label position="stacked"> Actual Start Date /End Date</ion-label>
-          <ion-input type="date" (click)="openCalendar()"></ion-input>
+          <ion-input class="dateinput2" (click)="openCalendar('dateinput2')"  value="12/2/2020 - 19/2/2020"></ion-input>
       </ion-item>
 
 

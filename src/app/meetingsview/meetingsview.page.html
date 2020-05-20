@@ -10,7 +10,7 @@
       <ion-button *ngIf="selectTabs == 'action'" (click)="addCard()">
         <ion-icon class="plus-icon" src="../../assets/icon/initiative/plus.svg"></ion-icon>
       </ion-button>
-      <ion-button *ngIf=" selectTabs == 'notes'" (click)="PopupNotes()">
+      <ion-button *ngIf=" selectTabs == 'notes'" (click)="addnoteCard()">
         <ion-icon class="plus-icon" src="../../assets/icon/initiative/plus.svg"></ion-icon>
       </ion-button>
       <!-- <ion-button *ngIf="selectTabs == 'action' || selectTabs == 'notes'" (click)="editpopup()">
@@ -185,7 +185,7 @@
     </ion-item> -->
     </ion-card>
 
-    <ion-card>
+    <ion-card *ngFor="let noteCard of noteCard">
       <ion-buttons class="action_btns" >
         <ion-button  >
           <ion-icon   src="assets/icon/Edit.svg" color="light" size="small"></ion-icon>        
@@ -197,15 +197,15 @@
       <ion-item  lines="none" >
         <ion-textarea class="cust_input"></ion-textarea>
       </ion-item>
-
     </ion-card>
+
   </ion-grid>
   <!-- notes end  -->
 
   <!-- Action -->
   <ion-grid class="top-curve action_tab " *ngIf="selectTabs == 'action'"> 
     
-    <ion-card class="actioncard_content">
+    <ion-card class="actioncard_content" >
       <ion-buttons class="action_btns" >
         <ion-button  >
           <ion-icon   src="assets/icon/Edit.svg" color="light" size="small"></ion-icon>        
@@ -232,7 +232,39 @@
         <ion-col size="6" class="ion-text-right date_col">
           <ion-img src="../../assets/icon/Calender.png"></ion-img>
           <!-- <ion-label (click)="openCalendar()">12 Jan 2020</ion-label> -->
-          <ion-datetime value="2019-10-01T15:43:40.394Z" display-timezone="utc" ></ion-datetime>
+          <ion-datetime value="2019-10-01" display-timezone="utc" ></ion-datetime>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+    <ion-card class="actioncard_content" *ngFor= "let actionCard of actionCard">
+      <ion-buttons class="action_btns" >
+        <ion-button  >
+          <ion-icon   src="assets/icon/Edit.svg" color="light" size="small"></ion-icon>        
+        </ion-button>
+        <ion-button >
+          <ion-icon  src="assets/icon/Delete.svg" color="light" size="small"></ion-icon>        
+        </ion-button>
+      </ion-buttons>
+      <ion-item  lines="none" >
+        <ion-textarea class="cust_input"></ion-textarea>
+      </ion-item>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="6">
+          <ion-item lines="none">
+            <div class="attendees-profile display-flex align-item-center">
+              <div class="attendees-list ion-justify-content-end">
+                <ion-img  src="assets/profile/profile1.png"></ion-img>
+                <p class="more">+</p>
+              </div>
+            </div>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size="6" class="ion-text-right date_col">
+          <ion-img src="../../assets/icon/Calender.png"></ion-img>
+          <!-- <ion-label (click)="openCalendar()">12 Jan 2020</ion-label> -->
+          <ion-datetime value="2019-10-01" display-timezone="utc" ></ion-datetime>
         </ion-col>
       </ion-row>
     </ion-card>
