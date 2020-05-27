@@ -79,6 +79,10 @@ const routes: Routes = [
     path: 'meeting-view-poup',
     loadChildren: () => import('./meeting-view-poup/meeting-view-poup.module').then( m => m.MeetingViewPoupPageModule)
   },
+  {
+    path: 'sub-initiative-modal',
+    loadChildren: () => import('./sub-initiative-modal/sub-initiative-modal.module').then( m => m.SubInitiativeModalPageModule)
+  },
 
 
 ];

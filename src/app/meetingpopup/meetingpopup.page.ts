@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import {Router} from '@angular/router';
-import { CalendarComponentOptions } from 'ion2-calendar';
-import { CalendarModal, CalendarModalOptions,CalendarResult } from 'ion2-calendar';
+import { CalendarController } from 'ion2-calendar/dist';
+import { CalendarComponentOptions, CalendarModal, CalendarModalOptions,CalendarResult, DayConfig } from 'ion2-calendar';
 
 @Component({
   selector: 'app-meetingpopup',
@@ -11,7 +11,10 @@ import { CalendarModal, CalendarModalOptions,CalendarResult } from 'ion2-calenda
 })
 export class MeetingpopupPage implements OnInit {
 
-  constructor( private modalControler: ModalController, public router: Router) { }
+  constructor( 
+    private modalControler: ModalController, 
+    public router: Router,
+    private calendarControler: CalendarController) { }
 
   ngOnInit() {
   }
@@ -23,38 +26,36 @@ export class MeetingpopupPage implements OnInit {
     });
   }
 
-  // date picker
-  dateRange: { from: 0; to: 30; };
-  type: 'string';
-  
-  optionsRange: CalendarComponentOptions = {
-    pickMode: 'range',
-    // monthPickerFormat: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
-    monthFormat:'MMM YYYY'	,
-  };
+  // datepicker range
+  async openCalendar(input) {
 
-  async openCalendar() {
     const options: CalendarModalOptions = {
-      title: 'Range',
+      title: 'range',
       pickMode: 'range',
       color:'dark',
-      cssClass: 'calendar_Cust',
-      
+      cssClass: 'dayOff', 
+      disableWeeks: [],
+      defaultDate: new Date(),
+      // monthFormat: 'DD MM YYYY'
     };
     
+    const myCalendar =  await this.modalControler.create({
+      component: CalendarModal,
+      componentProps: { options },
+      cssClass: 'calendarModal', 
+    });
 
-  let myCalendar =  await this.modalControler.create({
-    component: CalendarModal,
-    componentProps: { options }
-  });
+    myCalendar.present();    
+    const event: any = await myCalendar.onDidDismiss();
+    const date = event.data;
+    const dateObj = event.data.dateObj;
+    const from: CalendarResult = date.from;
+    const to: CalendarResult = date.to;
 
-  myCalendar.present();    
-  const event: any = await myCalendar.onDidDismiss();
-  const date = event.data;
-  const from: CalendarResult = date.from;
-  const to: CalendarResult = date.to;
+    console.log(from.dateObj, to.dateObj);
 
-  console.log(date, from, to);
-}
+    var fromselectdate = from.date + '/ ' + from.months + '/ ' + from.years + ' - ' +  to.date + '/ ' + to.months + '/ ' + to.years ; 
+    document.querySelector('.'+input).setAttribute('value', fromselectdate);
+  }
 
 }

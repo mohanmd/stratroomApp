@@ -7,10 +7,10 @@
       <ion-button class="edit-btn" (click)="editpopupView('plus')" *ngIf="selectTabs == 'view'">
         <ion-icon class="edit-icon" src="assets/icon/Edit.svg"  color="light" ></ion-icon>
       </ion-button>
-      <ion-button *ngIf="selectTabs == 'action'" (click)="addCard()">
+      <ion-button *ngIf="selectTabs == 'action'" (click)="addactionCard(row)">
         <ion-icon class="plus-icon" src="../../assets/icon/initiative/plus.svg"></ion-icon>
       </ion-button>
-      <ion-button *ngIf=" selectTabs == 'notes'" (click)="addnoteCard()">
+      <ion-button *ngIf=" selectTabs == 'notes'" (click)="addnoteCard(row)">
         <ion-icon class="plus-icon" src="../../assets/icon/initiative/plus.svg"></ion-icon>
       </ion-button>
       <!-- <ion-button *ngIf="selectTabs == 'action' || selectTabs == 'notes'" (click)="editpopup()">
@@ -111,8 +111,8 @@
           <div class="attendees-list ion-justify-content-end">
             <ion-img  src="assets/profile/profile1.png"></ion-img>
             <ion-img  src="assets/profile/profile2.png"></ion-img>
-            <ion-img  src="assets/profile/profile3.png"></ion-img>
-            <p class="more">+</p>
+            <!-- <ion-img  src="assets/profile/profile3.png"></ion-img> -->
+            <p class="more">+3</p>
           </div>
         </div>
       </ion-col>
@@ -162,7 +162,7 @@
 
   <!-- notes -->
   <ion-grid class="top-curve notes_tab " *ngIf="selectTabs == 'notes'">
-    <ion-card>
+    <ion-card >
       <ion-buttons class="action_btns" >
         <ion-button  >
           <ion-icon   src="assets/icon/Edit.svg" color="light" size="small"></ion-icon>        
@@ -185,12 +185,12 @@
     </ion-item> -->
     </ion-card>
 
-    <ion-card *ngFor="let noteCard of noteCard">
+    <ion-card *ngFor="let noteCard of noteCard;let rowIndex = index">
       <ion-buttons class="action_btns" >
         <ion-button  >
           <ion-icon   src="assets/icon/Edit.svg" color="light" size="small"></ion-icon>        
         </ion-button>
-        <ion-button >
+        <ion-button (click)="removeNoteCard(rowIndex)">
           <ion-icon  src="assets/icon/Delete.svg" color="light" size="small"></ion-icon>        
         </ion-button>
       </ion-buttons>
@@ -223,7 +223,8 @@
             <div class="attendees-profile display-flex align-item-center">
               <div class="attendees-list ion-justify-content-end">
                 <ion-img  src="assets/profile/profile1.png"></ion-img>
-                <p class="more">+</p>
+                <ion-img src="assets/profile/profile2.png"></ion-img>
+                <span class="more">+3</span>
               </div>
             </div>
           </ion-item>
@@ -237,12 +238,12 @@
       </ion-row>
     </ion-card>
 
-    <ion-card class="actioncard_content" *ngFor= "let actionCard of actionCard">
+    <ion-card class="actioncard_content" *ngFor= "let actionCard of actionCard;let Index = index">
       <ion-buttons class="action_btns" >
         <ion-button  >
           <ion-icon   src="assets/icon/Edit.svg" color="light" size="small"></ion-icon>        
         </ion-button>
-        <ion-button >
+        <ion-button (click)="removeActionCard(Index)">
           <ion-icon  src="assets/icon/Delete.svg" color="light" size="small"></ion-icon>        
         </ion-button>
       </ion-buttons>
@@ -255,7 +256,8 @@
             <div class="attendees-profile display-flex align-item-center">
               <div class="attendees-list ion-justify-content-end">
                 <ion-img  src="assets/profile/profile1.png"></ion-img>
-                <p class="more">+</p>
+                <ion-img src="assets/profile/profile2.png"></ion-img>
+                <p class="more">3+</p>
               </div>
             </div>
           </ion-item>

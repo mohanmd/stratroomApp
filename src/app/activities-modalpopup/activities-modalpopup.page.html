@@ -40,7 +40,7 @@
 
   <ion-item lines="none">
     <ion-label position="stacked">Start Date /End Date</ion-label>
-    <ion-input type="date"></ion-input>
+    <ion-input class="dateinput2" (click)="openCalendar('dateinput2')"  value="12/ 2/ 2020 - 19/ 2/ 2020"></ion-input>
   </ion-item>
 
 
@@ -50,11 +50,7 @@
       <ion-buttons slot="end">
         <span ><ion-icon class="down-outline" name="caret-down-outline"></ion-icon></span>
       </ion-buttons>
-
     </ion-input>
-
-
-
   </ion-item>
 
 

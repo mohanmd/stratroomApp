@@ -6,6 +6,7 @@ import { CalendarModal, CalendarModalOptions,CalendarResult } from 'ion2-calenda
 
 // import { MeetingViewPoupPage } from '../meeting-view-poup/meeting-view-poup.page';
 import { MeetingpopupPage } from '../meetingpopup/meetingpopup.page'
+import { $ } from 'protractor';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class MeetingsviewPage implements OnInit {
   public buttonTrue: boolean;
 
   card: any;
+  i: any;
   
   optionsRange: CalendarComponentOptions = {
     pickMode: 'range',
@@ -105,16 +107,35 @@ export class MeetingsviewPage implements OnInit {
     return await modal.present();
   }
 
-  public actionCard = []
-  public noteCard = []
+  public actionCard = [];
+  public actionCard1 = [];
+  public noteCard = [];
+  public noteCard1 = [];
     
   // add card
   addCard(){
     this.actionCard.push(this.actionCard);
   }
 
-  addnoteCard(){
-    this.noteCard.push(this.noteCard);
+  addnoteCard(row){
+    this.noteCard.push(row);
   }
+  addactionCard(row): void {
+    this.actionCard.push(row);
+ }
+  // removecard
+  removeNoteCard(x){
+   this.noteCard.splice(x);
+  }
+  removeNoteCard1(x){
+   this.noteCard1.splice(x);
+  }
+  removeActionCard(x){
+   this.actionCard.splice(x);
+  }
+  removeActionCard1(x){
+   this.actionCard1.splice(x);
+  }
+
 
 }

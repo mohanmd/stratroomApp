@@ -12,17 +12,9 @@ import { CalendarComponentOptions, CalendarModal, CalendarModalOptions,CalendarR
   styleUrls: ['./intiative-modalpopup.page.scss'],
 })
 export class IntiativeModalpopupPage implements OnInit {
-  // @Input() data: string;
-  // @Input() data1: string;
-  // @Input() iniativedata: string;
+
   public buttonTrue: boolean;
-  date: string;
-  from: string;
-  to: string;
-  json: string;
-  
-  fromDateF: any;
-  toDateF: any;
+
 
   constructor( private modalControler: ModalController,  private calendarControler: CalendarController , public router: Router  )  {
   
@@ -32,19 +24,10 @@ export class IntiativeModalpopupPage implements OnInit {
   }
 
   dismiss() {
-    // using the injected ModalController this page
-    // can "dismiss" itself and optionally pass back data
     this.modalControler.dismiss({
       'dismissed': true
     });
   }
-
-
-  // range picker
-  // optionsRange: CalendarComponentOptions = {
-  //   showMonthPicker: true,
-    
-  // };
 
 
 
@@ -59,14 +42,6 @@ export class IntiativeModalpopupPage implements OnInit {
       defaultDate: new Date(),
       // monthFormat: 'DD MM YYYY'
     };
-    
-
-    // const options: CalendarComponentOptions = {
-    //   monthPickerFormat: ['jan'],
-    //   showMonthPicker: false,   
-    //   pickMode: 'single',
-    //   weekdays: []
-    // };
     
   const myCalendar =  await this.modalControler.create({
     component: CalendarModal,
